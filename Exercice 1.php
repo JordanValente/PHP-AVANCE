@@ -117,13 +117,13 @@ echo "<br>";
 class Voiture {
     public $marque;
     public $modele;
-    public $anneeDeFabrication;
+    public $anneDeFabrication;
     public $couleur;
 
 
     public function afficher() {
         echo "Marque : " . $this->marque . "<br>";
-        echo "Anné de fabrication : " . $this->anneeDeFabrication . "<br>";
+        echo "Année de fabrication : " . $this->anneDeFabrication . "<br>";
         echo "Couleur : " . $this->couleur . "<br>";
         echo "modele : " . $this->modele . "<br>";
     }
@@ -133,9 +133,80 @@ class Voiture {
 $maVoiture = new Voiture();
 $maVoiture->marque = "Renault";
 $maVoiture->modele = "clio4rs";
-$maVoiture->anneeDeFabrication = 2013;
+$maVoiture->anneDeFabrication = 2013;
 $maVoiture->couleur = "Rouge et blanche";
 
 
+$maVoiture->afficher();
+echo "<br>";
+echo "====================================================";
+echo "<br>";
+?>
+<!--construction -->
+<?php
+// Définition de la classe Personne
+class Personneco {
+    public $nomco;
+    public $prenomco;
+    public $ageco;
+
+    // Constructeur
+    public function __construct($nomco_param, $prenomco_param, $ageco_param) {
+        $this->nomco= $nomco_param;
+        $this->prenomco = $prenomco_param;
+        $this->ageco = $ageco_param;
+    }
+
+    // Méthode pour afficher l'identité
+    public function monIdentiteco() {
+        echo "Nom : " . $this->nomco . "<br>";
+        echo "Prénom : " . $this->prenomco . "<br>";
+        echo "Âge : " . $this->ageco . " ans<br>";
+    }
+
+    // Méthode pour afficher uniquement le nom
+    public function afficheMonNomco() {
+        return "Mon nom est " . $this->nomco;
+    }
+}
+
+// Création d'un objet Personne avec le constructeur
+$personne1 = new Personneco("José", "Ferdinand", 42);
+
+// Appel des méthodes
+$personne1->monIdentiteco();
+echo "<br>";
+echo $personne1->afficheMonNomco();
+echo "<br>";
+echo "====================================================";
+echo "<br>";
+?>
+
+<?php
+
+class Vehiculevoiture {
+    public $modele;
+    public $kilometrage;
+    public $typeCarburant;
+
+
+    public function __construct($modele_param, $km_param, $carburant_param) {
+        $this->modele = $modele_param;
+        $this->kilometrage = $km_param;
+        $this->typeCarburant = $carburant_param;
+    }
+
+
+    public function afficher() {
+        echo "Modèle : " . $this->modele . "<br>";
+        echo "Kilométrage : " . $this->kilometrage . " km<br>";
+        echo "Type de carburant : " . $this->typeCarburant . "<br>";
+    }
+}
+
+
+$maVoiture = new Vehiculevoiture("Renault Clio", 85000, "Diesel");
+
+// Appel de la méthode
 $maVoiture->afficher();
 ?>
