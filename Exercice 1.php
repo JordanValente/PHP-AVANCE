@@ -207,6 +207,105 @@ class Vehiculevoiture {
 
 $maVoiture = new Vehiculevoiture("Renault Clio", 85000, "Diesel");
 
-// Appel de la méthode
+
 $maVoiture->afficher();
+echo "<br>";
+echo "====================================================";
+echo "<br>";
 ?>
+
+<!--Compte Bancaire -->
+<?php
+// Définition de la classe Comptebancaire
+class Comptebancaire {
+    public $proprietaire;
+    public $solde;
+    public $anneebancaire;
+
+    // Constructeur
+    public function __construct($proprietaire_param, $solde_param, $anneebancaire_param) {
+        $this->proprietaire = $proprietaire_param;
+        $this->solde = $solde_param;
+        $this->annee = $anneebancaire_param;
+    }
+
+    // Méthode pour afficher le propriétaire
+    public function showProprietaire() {
+        echo "Le proprio est " . $this->proprietaire . "<br>";
+    }
+
+    // Méthode pour afficher le solde
+    public function infoSolde() {
+        echo "Solde : " . $this->solde . " €<br>";
+    }
+}
+
+// Création d'un objet Comptebancaire
+$monCompte = new Comptebancaire("Jordan Valente", 1250.75, 2025);
+
+// Appel des méthodes
+$monCompte->showProprietaire();
+$monCompte->infoSolde();
+echo "<br>";
+echo "====================================================";
+echo "<br>";
+?>
+<!--Compte Bancaire avec le contrusct -->
+<?php
+// Classe parente : CompteBancaire
+class CompteBancaire2 {
+    public $titulaire;
+    public $montant;
+    public $ouverture;
+
+    public function __construct($titulaire, $montant, $ouverture) {
+        $this->titulaire = $titulaire;
+        $this->montant = $montant;
+        $this->ouverture = $ouverture;
+    }
+
+    public function afficherTitulaire() {
+        echo "Titulaire du compte : " . $this->titulaire . "<br>";
+    }
+
+    public function afficherMontant() {
+        echo "Montant disponible : " . $this->montant . " €<br>";
+    }
+}
+
+// Classe enfant : CompteEpargne
+class CompteEpargne2 extends CompteBancaire2 {
+    public $reserve;
+    public $soldeBloque;
+
+    public function __construct($titulaire, $montant, $ouverture, $reserve, $soldeBloque) {
+        parent::__construct($titulaire, $montant, $ouverture);
+        $this->reserve = $reserve;
+        $this->soldeBloque = $soldeBloque;
+    }
+
+    public function afficherReserve() {
+        echo "Montant en réserve : " . $this->reserve . " €<br>";
+    }
+
+    public function afficherSoldeBloque() {
+        echo "Solde bloqué : " . $this->soldeBloque . " €<br>";
+    }
+}
+
+// Création des objets
+$compte1 = new CompteBancaire2("Nora", 3200, 2019);
+$compte1->afficherTitulaire();
+$compte1->afficherMontant();
+
+echo "/\/\/|-~-~-~-~-~-~-~-~-~-~-~-~-~-|\/\/\<br>";
+$compte2 = new CompteEpargne2("Liam", 4500, 2021, 800, 1200);
+$compte2->afficherTitulaire();
+$compte2->afficherMontant();
+$compte2->afficherReserve();
+$compte2->afficherSoldeBloque();
+echo "<br>";
+echo "====================================================";
+echo "<br>";
+?>
+
