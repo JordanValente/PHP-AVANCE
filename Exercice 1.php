@@ -310,14 +310,12 @@ echo "<br>";
 ?>
 <!--Exercice voitureVip-->
 <?php
-// Classe VoitureVip
 class VoitureVip {
     public $modeleVip;
     public $anneeVip;
     public $couleurVip;
     public $nombreDeRouesVip;
 
-    // Constructeur
     public function __construct($modeleVip, $anneeVip, $couleurVip, $nombreDeRouesVip) {
         $this->modeleVip = $modeleVip;
         $this->anneeVip = $anneeVip;
@@ -325,7 +323,6 @@ class VoitureVip {
         $this->nombreDeRouesVip = $nombreDeRouesVip;
     }
 
-    // Méthode pour afficher les infos de la voiture
     public function afficherInfos() {
         echo "Modèle VIP : " . $this->modeleVip . "<br>";
         echo "Année : " . $this->anneeVip . "<br>";
@@ -334,11 +331,57 @@ class VoitureVip {
     }
 }
 
-// Création d'un objet VoitureVip
 $vipCar = new VoitureVip("Bugatti Chiron", 2022, "Bleu Nuit", 4);
 
-// Appel de la méthode
 $vipCar->afficherInfos();
+echo "<br>";
+echo "====================================================";
+echo "<br>";
+?>
+<!--Exercice voiturePreVip-->
+<?php
+// Classe Voiture
+class VoiturePreVip {
+    public $marquePreVip;
+    public $modelePreVip;
+    public $anneePreVip;
+
+    public function __construct($marquePreVip, $modelePreVip, $anneePreVip) {
+        $this->marquePreVip = $marquePreVip;
+        $this->modelePreVip = $modelePreVip;
+        $this->anneePreVip = $anneePreVip;
+    }
+
+    public function afficherInfosPreVip() {
+        echo "Marque : " . $this->marquePreVip . "<br>";
+        echo "Modèle : " . $this->modelePreVip . "<br>";
+        echo "Année : " . $this->anneePreVip . "<br>";
+    }
+}
+
+// Classe VoitureVip qui hérite de Voiture
+class VoiturePreVipz extends VoiturePreVip {
+    // Attribut spécifique
+    private $nombreDeRouesPreVip;
+
+    // Constructeur
+    public function __construct($marquePreVip, $modelePreVip, $anneePreVip, $nombreDeRouesPreVip) {
+        parent::__construct($marquePreVip, $modelePreVip, $anneePreVip);
+        $this->nombreDeRouesPreVip = $nombreDeRouesPreVip;
+    }
+
+    // Méthode spécifique
+    public function afficherRouesPreVip() {
+        echo "Nombre de roues : " . $this->nombreDeRouesPreVip . "<br>";
+    }
+}
+
+// Création d'un objet VoitureVip
+$vipCar = new VoiturePreVipz("Rolls-Royce", "Phantom", 2023, 4);
+
+// Appel des méthodes
+$vipCar->afficherInfosPreVip();
+$vipCar->afficherRouesPreVip();
 echo "<br>";
 echo "====================================================";
 echo "<br>";
