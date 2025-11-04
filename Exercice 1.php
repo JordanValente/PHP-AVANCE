@@ -56,8 +56,7 @@ foreach ($years as $value) {
 echo "<br>";
 echo "====================================================";
 echo "<br>";
-$annees_naissance = ["1960","1985","2007","1999","2010","1975"];
-$annee_actuelle = date("2025");
+$annees_naissance = [1960,1985,2007,1999,2010,1975];
 
 $annee_min = min($annees_naissance);
 $annee_max = max($annees_naissance);
