@@ -308,4 +308,38 @@ echo "<br>";
 echo "====================================================";
 echo "<br>";
 ?>
+<!--Exercice voitureVip-->
+<?php
+// Classe VoitureVip
+class VoitureVip {
+    public $modeleVip;
+    public $anneeVip;
+    public $couleurVip;
+    public $nombreDeRouesVip;
 
+    // Constructeur
+    public function __construct($modeleVip, $anneeVip, $couleurVip, $nombreDeRouesVip) {
+        $this->modeleVip = $modeleVip;
+        $this->anneeVip = $anneeVip;
+        $this->couleurVip = $couleurVip;
+        $this->nombreDeRouesVip = $nombreDeRouesVip;
+    }
+
+    // Méthode pour afficher les infos de la voiture
+    public function afficherInfos() {
+        echo "Modèle VIP : " . $this->modeleVip . "<br>";
+        echo "Année : " . $this->anneeVip . "<br>";
+        echo "Couleur : " . $this->couleurVip . "<br>";
+        echo "Nombre de roues : " . $this->nombreDeRouesVip . "<br>";
+    }
+}
+
+// Création d'un objet VoitureVip
+$vipCar = new VoitureVip("Bugatti Chiron", 2022, "Bleu Nuit", 4);
+
+// Appel de la méthode
+$vipCar->afficherInfos();
+echo "<br>";
+echo "====================================================";
+echo "<br>";
+?>
